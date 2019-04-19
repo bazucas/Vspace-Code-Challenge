@@ -1,3 +1,19 @@
-<p>
-  nav works!
-</p>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['/']"><img [src]="Logo" alt="logo"></a>
+    </div>
+    <div class="collapse navbar-collapse" [collapse]="isCollapsed">
+      <ul class="nav navbar-nav">
+        <li><a routerLink="/">Home</a></li>
+        <li routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

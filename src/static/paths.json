@@ -1,3 +1,4 @@
 {
+  "logo": "../assets/images/satelite.png",
   "endpoint" : "http://localhost:3000"
 }

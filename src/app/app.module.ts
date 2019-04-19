@@ -10,6 +10,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {CollapseModule} from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    CollapseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
