@@ -1,0 +1,71 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "username": "mathilde",
+      "phone": "992312312",
+      "role": "CEO",
+      "name": "Mathilde Saylors"
+    },
+    {
+      "id": 2,
+      "username": "alia",
+      "phone": "986733455",
+      "role": "Designer",
+      "name": "Alia Ginder"
+    },
+    {
+      "id": 3,
+      "username": "freeman",
+      "phone": "971232343",
+      "role": "Developer",
+      "name": "Freeman Litten"
+    },
+    {
+      "id": 4,
+      "username": "piedad",
+      "phone": "992362345",
+      "role": "Sales",
+      "name": "Piedad Dewald"
+    },
+    {
+      "id": 5,
+      "username": "beau",
+      "phone": "912342303",
+      "role": "PR",
+      "name": "Beau Siegel"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "empId": 1,
+      "date": "2019-03-25T12:00:00Z",
+      "post": "asdfasdf"
+    },
+    {
+      "id": 2,
+      "empId": 2,
+      "date": "2019-03-25T12:00:00Z",
+      "post": "hfghfghfdgh"
+    },
+    {
+      "id": 3,
+      "empId": 3,
+      "date": "2019-03-25T12:00:00Z",
+      "post": "ghjgjghjghj"
+    },
+    {
+      "id": 4,
+      "empId": 4,
+      "date": "2019-03-25T12:00:00Z",
+      "post": "dfgdfgfdgfdg"
+    },
+    {
+      "id": 5,
+      "empId": 5,
+      "date": "2019-03-25T12:00:00Z",
+      "post": "fdhggfjdsfvvdfv"
+    }
+  ]
+}
