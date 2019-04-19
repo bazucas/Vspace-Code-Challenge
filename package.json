@@ -32,7 +32,8 @@
     "primeng": "^7.1.1",
     "font-awesome": "^4.7.0",
     "jasmine-expect": "^4.0.1",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "angular-vertical-timeline": "^0.6.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.8",

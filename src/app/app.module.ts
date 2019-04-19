@@ -11,6 +11,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {CollapseModule} from 'ngx-bootstrap';
+import {AutoCompleteModule} from 'primeng/primeng';
+import {VerticalTimelineModule} from 'angular-vertical-timeline';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import {CollapseModule} from 'ngx-bootstrap';
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     CollapseModule,
+    AutoCompleteModule,
+    VerticalTimelineModule
   ],
   providers: [],
   bootstrap: [AppComponent]
