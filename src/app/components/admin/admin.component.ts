@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {ApiService} from '../../services/api.service';
 import {Employee} from '../../models/employee';
 import {takeUntil} from 'rxjs/operators';
@@ -24,7 +24,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   private employeeForm = this.formBuilder.group({
     id: [''],
     username: ['', [Validators.required, Validators.pattern('[\\w-_]+')]],
-    phone: ['', Validators.required],
+    phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
     role: ['', Validators.required],
     name: ['', Validators.required]
   });

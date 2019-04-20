@@ -21,10 +21,11 @@
 
       <div class="ui-g-12 ui-md-2 ui-lg-2">
         <div class="ui-inputgroup">
-          <input type="number" pInputText formControlName="phone" placeholder="Phone">
+          <input type="text" pInputText formControlName="phone" placeholder="Phone">
         </div>
-        <div *ngIf="submitted && f.phone.errors || f.phone.invalid && (f.phone.dirty)" class="invalid">
+        <div *ngIf="submitted && f.phone.errors || f.phone.invalid && (f.phone.dirty || f.phone.touched)" class="invalid">
           <div *ngIf="f.phone.errors.required">Phone is required</div>
+          <div *ngIf="f.phone.errors.pattern">Numbers only</div>
         </div>
       </div>
 
