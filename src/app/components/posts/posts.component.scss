@@ -1,0 +1,38 @@
+.center {
+  text-align: center;
+}
+.filter-container {
+  text-align: center;
+}
+@media (max-width: 40em) {
+  .bottle-details, .search-icon {
+    text-align: center;
+    margin-top: 0;
+  }
+  .filter-container {
+    text-align: left;
+  }
+}
+.list-container {
+  padding: 10px;
+  th, td {
+    overflow: hidden
+  }
+}
+.comments {
+  padding: 10px 0;
+  font-weight: normal;
+  width: 100%;
+}
+.property {
+  font-weight: bold;
+}
+.options {
+  i {
+    cursor: pointer;
+    padding-right: 5px;
+  }
+}
+.invalid {
+  color: red;
+}

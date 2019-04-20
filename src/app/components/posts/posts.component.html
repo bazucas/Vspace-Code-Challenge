@@ -1,7 +1,51 @@
-<br>
-<br>
-<br>
+<form [formGroup]="postForm">
+  <div class="p-col-12">
 
+    <h3 class="center">Employee management</h3>
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-1 ui-lg-1">
+        <div class="ui-inputgroup">
+          <input type="number" pInputText formControlName="id" placeholder="Id">
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-4 ui-lg-4">
+        <div class="ui-inputgroup">
+          <input type="text" pInputText formControlName="who" placeholder="Who">
+        </div>
+        <div *ngIf="submitted && f.who.errors || f.who.invalid && (f.who.dirty || f.who.touched)" class="invalid">
+          <div *ngIf="f.who.errors.required">Who is required</div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-2 ui-lg-2">
+        <div class="ui-inputgroup">
+          <input type="text" pInputText formControlName="date" placeholder="Date">
+        </div>
+        <div *ngIf="submitted && f.date.errors || f.date.invalid && (f.date.dirty || f.date.touched)" class="invalid">
+          <div *ngIf="f.date.errors.required">Date is required</div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-4 ui-lg-4">
+        <div class="ui-inputgroup">
+          <input type="text" pInputText formControlName="comment" placeholder="Comment">
+        </div>
+        <div *ngIf="submitted && f.comment.errors || f.comment.invalid && (f.comment.dirty || f.comment.touched)" class="invalid">
+          <div *ngIf="f.comment.errors.required">Comment is required</div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-1 ui-lg-1">
+        <div class="ui-inputgroup">
+          <button *ngIf="postForm.value.id === ''" pButton label="Add" (click)="addPost()"></button>
+          <button *ngIf="postForm.value.id !== ''" pButton label="Update" (click)="updatePost()"></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
 <!-- Add the timeline -->
 <vertical-timeline>
 
