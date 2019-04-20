@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-posts',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  tomorrow = new Date(2017, 9, 20, 14, 34, 32, 10);
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
   }

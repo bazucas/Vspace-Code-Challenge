@@ -1,10 +1,91 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<p>
-  admin works!
-</p>
+
+<form [formGroup]="employeeForm">
+  <div class="p-col-12">
+
+    <h3 class="center">Employee management</h3>
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-1 ui-lg-1">
+        <div class="ui-inputgroup">
+          <input type="number" disabled pInputText formControlName="id" placeholder="Id">
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-2 ui-lg-2">
+        <div class="ui-inputgroup">
+          <input type="text" pInputText formControlName="username" placeholder="Username">
+        </div>
+        <div *ngIf="submitted && f.username.errors || f.username.invalid && (f.username.dirty || f.username.touched)" class="invalid">
+          <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-2 ui-lg-2">
+        <div class="ui-inputgroup">
+          <input type="number" pInputText formControlName="phone" placeholder="Phone">
+        </div>
+        <div *ngIf="submitted && f.phone.errors || f.phone.invalid && (f.phone.dirty)" class="invalid">
+          <div *ngIf="f.phone.errors.required">Phone is required</div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-2 ui-lg-2">
+        <div class="ui-inputgroup">
+          <input type="text" pInputText formControlName="role" placeholder="Role">
+        </div>
+        <div *ngIf="submitted && f.role.errors || f.role.invalid && (f.role.dirty || f.role.touched)" class="invalid">
+          <div *ngIf="f.role.errors.required">Role is required</div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-4 ui-lg-4">
+        <div class="ui-inputgroup">
+          <input type="text" pInputText formControlName="name" placeholder="Name">
+        </div>
+        <div *ngIf="submitted && f.name.errors || f.name.invalid && (f.name.dirty || f.name.touched)" class="invalid">
+          <div *ngIf="f.name.errors.required">Name is required</div>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-1 ui-lg-1">
+        <div class="ui-inputgroup">
+          <button *ngIf="employeeForm.value.id === ''" pButton label="Add" (click)="addEmployee()"></button>
+          <button *ngIf="employeeForm.value.id !== ''" pButton label="Update" (click)="updateEmployee()"></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
+  <div class="p-col-12">
+    <h3 class="center">Employee list</h3>
+    <div class="list-container">
+      <p-table [value]="allEmployees">
+        <ng-template pTemplate="header">
+          <tr>
+            <th class="p-col-1">Id</th>
+            <th class="p-col-2">Username</th>
+            <th class="p-col-2">Phone</th>
+            <th class="p-col-2">Role</th>
+            <th class="p-col-4">Name</th>
+            <th class="p-col-1">Actions</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-employee>
+          <tr>
+            <td>{{employee.id}}</td>
+            <td>{{employee.username}}</td>
+            <td>{{employee.phone}}</td>
+            <td>{{employee.role}}</td>
+            <td>{{employee.name}}</td>
+            <td class="options">
+              <i class="fas fa-user-edit" (click)="setFormValues(employee)"></i>
+              <i class="fas fa-user-minus" (click)="deleteEmployee(employee)"></i>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+    </div>
+
+  </div>
+
