@@ -1,17 +1,17 @@
 <form [formGroup]="postForm">
   <div class="p-col-12">
 
-    <h3 class="center">Employee management</h3>
+    <h3 class="center">Post management</h3>
     <div class="ui-g ui-fluid">
       <div class="ui-g-12 ui-md-1 ui-lg-1">
         <div class="ui-inputgroup">
-          <input type="number" pInputText formControlName="id" placeholder="Id">
+          <input id="idField" readonly type="number" pInputText formControlName="id" placeholder="Id">
         </div>
       </div>
 
       <div class="ui-g-12 ui-md-4 ui-lg-4">
         <div class="ui-inputgroup">
-          <input type="text" pInputText formControlName="who" placeholder="Who">
+          <p-autoComplete formControlName="who" [suggestions]="suggestName ? filteredNames : filteredPhones" [dropdown]="true" (completeMethod)="filterEmployee($event)" placeholder="Who"></p-autoComplete>
         </div>
         <div *ngIf="submitted && f.who.errors || f.who.invalid && (f.who.dirty || f.who.touched)" class="invalid">
           <div *ngIf="f.who.errors.required">Who is required</div>
@@ -20,7 +20,7 @@
 
       <div class="ui-g-12 ui-md-2 ui-lg-2">
         <div class="ui-inputgroup">
-          <input type="text" pInputText formControlName="date" placeholder="Date">
+          <p-calendar formControlName="date" placeholder="mm/dd/yyyy hh:mm" showButtonBar="true" showTime="true" hourFormat="24"></p-calendar>
         </div>
         <div *ngIf="submitted && f.date.errors || f.date.invalid && (f.date.dirty || f.date.touched)" class="invalid">
           <div *ngIf="f.date.errors.required">Date is required</div>
@@ -29,10 +29,10 @@
 
       <div class="ui-g-12 ui-md-4 ui-lg-4">
         <div class="ui-inputgroup">
-          <input type="text" pInputText formControlName="comment" placeholder="Comment">
+          <input type="text" pInputText formControlName="post" placeholder="Post">
         </div>
-        <div *ngIf="submitted && f.comment.errors || f.comment.invalid && (f.comment.dirty || f.comment.touched)" class="invalid">
-          <div *ngIf="f.comment.errors.required">Comment is required</div>
+        <div *ngIf="submitted && f.post.errors || f.post.invalid && (f.post.dirty || f.post.touched)" class="invalid">
+          <div *ngIf="f.post.errors.required">post is required</div>
         </div>
       </div>
 
@@ -46,28 +46,19 @@
     </div>
   </div>
 </form>
-<!-- Add the timeline -->
-<vertical-timeline>
 
-  <!-- Add some cards to the timeline. It works with *ngFor too -->
-
-  <!-- If no value is passed for the date, the current time is used. -->
-  <vertical-timeline-card>
-    <h1>Today</h1>
-  </vertical-timeline-card>
-
-  <!-- tomorrow = new Date(2017, 9, 20, 14,34); -->
-  <vertical-timeline-card [dateValue]="tomorrow">
-    <h1>Tomorrow</h1>
-  </vertical-timeline-card>
-
-  <vertical-timeline-card [dateValue]="tomorrow">
-    <h1>Tomorrow</h1>
-  </vertical-timeline-card>
-
-  <vertical-timeline-card [dateValue]="tomorrow">
-    <h1>Tomorrow</h1>
-  </vertical-timeline-card>
-
-
-</vertical-timeline>
+<div class="vertical-timeline">
+  <h3 class="center">Posts</h3>
+  <vertical-timeline>
+    <ng-container *ngFor="let post of allPosts">
+      <vertical-timeline-card [dateValue]="post.date">
+        <h3 class="pointer"><span [pTooltip]="tooltipData(post)" tooltipPosition="top">{{getPostEmployeeName(post.empId)?.replace('@', '')}}</span></h3>
+        <h4>{{post.post}}</h4>
+        <div class="options">
+          <i class="fas fa-user-edit" (click)="setFormValues(post)"></i>
+          <i class="fas fa-user-minus" (click)="deletePost(post)"></i>
+        </div>
+      </vertical-timeline-card>
+    </ng-container>
+  </vertical-timeline>
+</div>

@@ -1,3 +1,6 @@
+form {
+  padding-top: 50px;
+}
 .center {
   text-align: center;
 }
@@ -35,4 +38,8 @@
 }
 .invalid {
   color: red;
+}
+#idField {
+  cursor: pointer;
+  pointer-events: none;
 }

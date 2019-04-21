@@ -11,7 +11,15 @@ import { AdminComponent } from './components/admin/admin.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {CollapseModule} from 'ngx-bootstrap';
-import {AutoCompleteModule, ButtonModule, InputTextModule, PanelModule, RadioButtonModule, ScrollPanelModule} from 'primeng/primeng';
+import {
+  AutoCompleteModule,
+  ButtonModule,
+  CalendarModule,
+  InputTextModule,
+  PanelModule,
+  RadioButtonModule,
+  ScrollPanelModule, TooltipModule
+} from 'primeng/primeng';
 import {VerticalTimelineModule} from 'angular-vertical-timeline';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -45,7 +53,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
     PanelModule,
     TableModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CalendarModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

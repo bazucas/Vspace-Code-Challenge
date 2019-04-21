@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
-import {FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from '../../services/api.service';
 import {Employee} from '../../models/employee';
 import {takeUntil} from 'rxjs/operators';
@@ -70,7 +70,10 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   private addEmployee(): void  {
-    if (this.employeeForm.invalid) { return; }
+    if (this.employeeForm.invalid) {
+      this.toastr.warning('Form invalid', 'Warning');
+      return;
+    }
     if (this.validatePhone(this.employeeForm.value.phone)) {
       this.toastr.warning('Phone number already in use', 'Warning');
       return;
@@ -82,15 +85,18 @@ export class AdminComponent implements OnInit, OnDestroy {
         res => this.toastr.success('New employee added!!!', 'Success'),
         error => this.toastr.error(error.error.message, 'Error'),
         () => {
-          this.employeeForm.reset(this.employeeForm.value);
+          this.employeeForm.reset();
           this.getAllEmployees();
         }
       );
   }
 
   private updateEmployee(): void  {
-    if (this.employeeForm.invalid) { return; }
-    if (this.validatePhone(this.employeeForm.value.phone)) {
+    if (this.employeeForm.invalid) {
+      this.toastr.warning('Form invalid', 'Warning');
+      return;
+    }
+    if (this.allEmployees[this.employeeForm.value.id].phone !== this.employeeForm.value.phone && this.validatePhone(this.employeeForm.value.phone)) {
       this.toastr.warning('Phone number already in use', 'Warning');
       return;
     }
@@ -99,7 +105,7 @@ export class AdminComponent implements OnInit, OnDestroy {
       res => this.toastr.success('Employee updated!!!', 'Success'),
       error => this.toastr.error(error.error.message, 'Error'),
       () => {
-        this.employeeForm.reset(this.employeeForm.value);
+        this.employeeForm.reset();
         this.getAllEmployees();
       }
     );

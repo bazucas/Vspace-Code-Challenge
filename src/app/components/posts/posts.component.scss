@@ -1,3 +1,6 @@
+form {
+  padding-top: 50px;
+}
 .center {
   text-align: center;
 }
@@ -36,3 +39,23 @@
 .invalid {
   color: red;
 }
+p-calendar {
+  width: 100%;
+}
+#idField {
+  cursor: pointer;
+  pointer-events: none;
+}
+.options {
+  i {
+    cursor: pointer;
+    padding-right: 5px;
+  }
+}
+.pointer {
+  cursor: pointer;
+}
+.vertical-timeline {
+  padding: 30px 0;
+}
+

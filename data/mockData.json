@@ -1,35 +1,35 @@
 {
   "employees": [
     {
-      "id": 1,
-      "username": "mathilde",
+      "id": 0,
+      "username": "xouricea",
       "phone": "992312312",
       "role": "CEO",
-      "name": "Mathilde Saylors"
+      "name": "Xourice Saylors"
     },
     {
-      "id": 2,
+      "id": 1,
       "username": "alia",
       "phone": "986733455",
       "role": "Designer",
       "name": "Alia Ginder"
     },
     {
-      "id": 3,
+      "id": 2,
       "username": "freeman",
       "phone": "971232343",
       "role": "Developer",
       "name": "Freeman Litten"
     },
     {
-      "id": 4,
+      "id": 3,
       "username": "piedad",
       "phone": "992362345",
       "role": "Sales",
       "name": "Piedad Dewald"
     },
     {
-      "id": 5,
+      "id": 4,
       "username": "beau",
       "phone": "912342303",
       "role": "PR",
@@ -38,34 +38,58 @@
   ],
   "posts": [
     {
+      "id": 0,
+      "empId": 0,
+      "date": "2018-03-25T11:00:00.000Z",
+      "post": "lorem ialla"
+    },
+    {
       "id": 1,
       "empId": 1,
-      "date": "2019-03-25T12:00:00Z",
-      "post": "asdfasdf"
+      "date": "2018-04-22T11:58:00.000Z",
+      "post": "ohhh yeah"
     },
     {
       "id": 2,
       "empId": 2,
       "date": "2019-03-25T12:00:00Z",
-      "post": "hfghfghfdgh"
+      "post": "ghjgjghjghj"
     },
     {
       "id": 3,
       "empId": 3,
       "date": "2019-03-25T12:00:00Z",
-      "post": "ghjgjghjghj"
+      "post": "dfgdfgfdgfdg"
     },
     {
       "id": 4,
       "empId": 4,
-      "date": "2019-03-25T12:00:00Z",
-      "post": "dfgdfgfdgfdg"
+      "date": "2019-02-24T12:00:00Z",
+      "post": "xxxxxxxxxxxxxxx"
     },
     {
       "id": 5,
-      "empId": 5,
-      "date": "2019-03-25T12:00:00Z",
-      "post": "fdhggfjdsfvvdfv"
+      "empId": 4,
+      "date": "2017-04-01T19:16:00.000Z",
+      "post": "TESTaaaaa"
+    },
+    {
+      "id": 6,
+      "empId": 1,
+      "date": "2019-04-08T23:40:21.000Z",
+      "post": "asdasdasdadaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "id": 7,
+      "empId": 2,
+      "date": "2013-04-01T23:48:00.000Z",
+      "post": "2013"
+    },
+    {
+      "id": 8,
+      "empId": 4,
+      "date": "2019-04-28T23:48:27.000Z",
+      "post": "2019"
     }
   ]
 }
