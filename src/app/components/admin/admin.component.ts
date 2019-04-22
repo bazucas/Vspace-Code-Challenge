@@ -61,7 +61,9 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   private getAllEmployees(): void {
-    this.apiService.getAllObjects<Employee[]>('employees').subscribe(
+    this.apiService.getAllObjects<Employee[]>('employees')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
       res => this.allEmployees = res,
       error => this.toastr.error(error.error.message, 'Error'),
       () => {}
@@ -101,7 +103,9 @@ export class AdminComponent implements OnInit, OnDestroy {
       return;
     }
     const employee = AdminComponent.parseForm(this.employeeForm);
-    this.apiService.updateObject<Employee>('employees', employee.id, employee as Employee).subscribe(
+    this.apiService.updateObject<Employee>('employees', employee.id, employee as Employee)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
       res => this.toastr.success('Employee updated!!!', 'Success'),
       error => this.toastr.error(error.error.message, 'Error'),
       () => {
@@ -112,7 +116,9 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   private deleteEmployee(employee: Employee): void  {
-    this.apiService.deleteObject<Employee>('employees', employee.id).subscribe(
+    this.apiService.deleteObject<Employee>('employees', employee.id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
       res => this.toastr.success('Employee deleted!!!', 'Success'),
     error => this.toastr.error(error.error.message, 'Error'),
     () => this.getAllEmployees()

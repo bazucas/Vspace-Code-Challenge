@@ -75,7 +75,9 @@ export class PostsComponent implements OnInit, OnDestroy {
   }
 
   private getAllPosts(): void {
-    this.apiService.getAllObjects<Post[]>('posts').subscribe(
+    this.apiService.getAllObjects<Post[]>('posts')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
       res => this.unorderedPosts = res,
       error => this.toastr.error(error.error.message, 'Error'),
       () => this.allPosts = _.sortBy(this.unorderedPosts, obj => new Date(obj.date)).reverse()
@@ -84,7 +86,9 @@ export class PostsComponent implements OnInit, OnDestroy {
   }
 
   private getAllEmployees(): void {
-    this.apiService.getAllObjects<Employee[]>('employees').subscribe(
+    this.apiService.getAllObjects<Employee[]>('employees')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
       res => this.allEmployees = res,
       error => {},
       () => this.setNamesAndPhoneNumbers()
@@ -130,7 +134,9 @@ export class PostsComponent implements OnInit, OnDestroy {
       return;
     }
     const post = new Post(this.postForm.value);
-    this.apiService.updateProperty<Post>('posts', post.id, post as Post).subscribe(
+    this.apiService.updateProperty<Post>('posts', post.id, post as Post)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
       res => this.toastr.success('Post updated!!!', 'Success'),
       error => this.toastr.error(error.error.message, 'Error'),
       () => {
@@ -141,7 +147,9 @@ export class PostsComponent implements OnInit, OnDestroy {
   }
 
   private deletePost(post: Post): void  {
-    this.apiService.deleteObject<Post>('posts', post.id).subscribe(
+    this.apiService.deleteObject<Post>('posts', post.id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
       res => this.toastr.success('Post deleted!!!', 'Success'),
       error => this.toastr.error(error.error.message, 'Error'),
       () => this.getAllPosts()
