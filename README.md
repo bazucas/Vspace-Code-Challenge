@@ -72,7 +72,7 @@ direction. We are looking forward to seeing your work!
 Git clone the repository and install all the dependencies
 
 ```bash
-git clone git@github.com:bazucas/Wineo-Code-Challenge.git
+git clone git@github.com:bazucas/Vspace-Code-Challenge.git
 npm install
 ``` 
 Install [Json-Server](https://github.com/typicode/json-server) as a full fake REST API
@@ -83,7 +83,7 @@ npm install -g json-server
 Open a terminal window and run json-server with the mocked data from the data folder
 
 ```bash
-json-server --watch mockdata.json
+json-server -w mockdata.json
 ```
 
 Open another terminal windows and run the Angular application
@@ -97,22 +97,21 @@ npm start
 ### Structure
 
 * Simple flat folder structure with a single main module, without any lazy children modules, or shared modules.
-* Css used instead of pre-processors.
-* Inline styles accompany some html tags (future fix).
+* No state management used (ngrx nor ng2-redux).
+* Scss used.
 * Mobile first concerns. 
-* CRUD functionalities added.
+* CRUD functionalities added for Admin and Posts.
 * Generic API http verb methods.
-* Local update without refresh or API calls after persistence.
-* Images inside assets folder.
-* Mock data outside of src folder, since it's an extrinsic component.
+* Mock data in the root directory.
+* Vertical timeline.
+* Auto complete fields.
+* Tooltip showing employee information.
 
 ### Boilerplate code used
 
 * PrimeNg
 * PrimeFlex
-
-## Todo List
-
+* VerticalTimelineModule
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
